@@ -4,82 +4,15 @@
 
 This project is a CRUD Task API built with FastAPI and SQLite.
 
-The API allows you to:
+The API supports:
 
-- Create tasks
-- Read all tasks
-- Read a single task
-- Update tasks
-- Delete tasks
+- Create Task
+- Get All Tasks
+- Get Task by ID
+- Update Task
+- Delete Task
 
-Unlike the previous assignment, tasks are now stored in a SQLite database, so the data remains available even after restarting the server.
-
----
-
-## Why SQLite?
-
-SQLite was chosen because:
-
-- It is lightweight.
-- It requires no separate server.
-- The database is stored in a single file.
-- It is easy to use for small backend projects.
-
----
-
-## Database Location
-
-The database file is:
-
-```
-tasks.db
-```
-
-It is automatically created inside the project folder when the application starts.
-
----
-
-## How to Run
-
-### Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### Start the server
-
-```bash
-uvicorn main:app --reload
-```
-
-Open:
-
-```
-http://127.0.0.1:8000/docs
-```
-
----
-
-## Example SQL Query
-
-```sql
-SELECT * FROM tasks;
-```
-
-This query returns every task stored in the database.
-
----
-
-## Database Screenshot
-
-A screenshot of the SQLite database viewer is included in this repository.
-
-Filename:
-
-```
-database.png
-```
+Unlike the previous assignment, tasks are stored inside a SQLite database instead of an in-memory list.
 
 ---
 
@@ -89,4 +22,121 @@ database.png
 - FastAPI
 - SQLite
 - sqlite3
+- Pydantic
 - Uvicorn
+
+---
+
+## Project Structure
+
+```
+CRUD_API/
+│
+├── main.py
+├── tasks.db
+├── requirements.txt
+├── README.md
+└── database.png
+```
+
+---
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/HafizMuhammadAsim/CRUD_API.git
+```
+
+Go to project folder:
+
+```bash
+cd CRUD_API
+```
+
+Create virtual environment:
+
+```bash
+python -m venv venv
+```
+
+Activate virtual environment:
+
+Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the server:
+
+```bash
+uvicorn main:app --reload
+```
+
+---
+
+## Swagger Documentation
+
+Open:
+
+```
+http://127.0.0.1:8000/docs
+```
+
+---
+
+## API Endpoints
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | / | Root |
+| GET | /health | Health Check |
+| GET | /tasks | Get All Tasks |
+| GET | /tasks/{id} | Get Task by ID |
+| POST | /tasks | Create Task |
+| PUT | /tasks/{id} | Update Task |
+| DELETE | /tasks/{id} | Delete Task |
+
+---
+
+## Example SQL Queries
+
+```sql
+SELECT * FROM tasks;
+```
+
+```sql
+SELECT * FROM tasks WHERE done = 1;
+```
+
+```sql
+SELECT COUNT(*) FROM tasks;
+```
+
+---
+
+## Database Screenshot
+
+The SQLite database screenshot is included.
+
+Filename:
+
+```
+database.png
+```
+
+---
+
+## Author
+
+**Hafiz Muhammad Asim**
+
+Backend AI Engineering Internship – Week 3 Assignment
